@@ -33,7 +33,7 @@ distributions.
 
 For additional details you can refer to https://phabricator.vyos.net/T2490.
 
-.. opcmd:: system usb
+.. opcmd:: show system usb
 
   Retrieve a tree like representation of all connected USB devices.
 
@@ -69,7 +69,7 @@ For additional details you can refer to https://phabricator.vyos.net/T2490.
                 |__ Port 4: Dev 7, If 0, Class=Vendor Specific Class, Driver=ftdi_sio, 480M
 
 
-.. opcmd:: system usb
+.. opcmd:: show system usb
 
   Retrieve a list and description of all connected USB serial devices. The device name
   displayed, e.g. `usb0b2.4p1.0` can be directly used when accessing the serial console
@@ -150,7 +150,7 @@ port.
 Operation
 =========
 
-.. opcmd:: console-server ports
+.. opcmd:: show console-server ports
 
   Show configured serial ports and their respective interface configuration.
 
@@ -169,7 +169,7 @@ Operation
      usb0b2.4p1.0               up   vyos@localhost
 
 
-.. opcmd:: connect console-server <device>
+.. opcmd:: show connect console-server <device>
 
   Locally connect to serial port identified by `<device>`.
 
