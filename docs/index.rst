@@ -8,8 +8,7 @@ VyOS User Guide
 
 .. toctree::
    :glob:
-   :maxdepth: 2
-   :numbered:
+   :maxdepth: 3
    :includehidden:
 
    introducing
