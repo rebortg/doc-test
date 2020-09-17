@@ -65,7 +65,7 @@ def lint_AS(cnt, line):
 
 def lint_linelen(cnt, line):
     if len(line) > 80:
-        return (f"Line too long: len={len(line)}", cnt, 'failure')
+        return (f"Line too long: len={len(line)}", cnt, 'warning')
 
 
 def handle_file(path, file):
@@ -158,5 +158,4 @@ def main():
 
 
 if __name__ == "__main__":
-    if main() is False:
-        exit(1)
+    main()
