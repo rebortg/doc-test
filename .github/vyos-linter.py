@@ -102,7 +102,7 @@ def handle_file(path, file):
 
 
 def main():
-    print(sys.argv[1])
+    print(sys.argv)
     bool_error = True
     # TODO: path and/or files via cli arg
     for root, dirs, files in os.walk("../docs"):
