@@ -2,6 +2,7 @@ import os
 import re
 import ipaddress
 import sys
+import ast
 
 IPV4SEG  = r'(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])'
 IPV4ADDR = r'(?:(?:' + IPV4SEG + r'\.){3,3}' + IPV4SEG + r')'
@@ -136,7 +137,7 @@ def main():
     bool_error = True
     print('start')
     try:
-        files = sys.argv[1]
+        files = ast.literal_eval(sys.argv[1])
         for file in files:
                 print(file)
                 if file[-4:] == ".rst":
