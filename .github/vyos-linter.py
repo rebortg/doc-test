@@ -134,6 +134,7 @@ def handle_file_action(filepath):
 
 def main():
     bool_error = True
+    print('start')
     try:
         files = sys.argv[2]
         for file in files:
