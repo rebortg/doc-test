@@ -131,7 +131,7 @@ def handle_file_action(filepath):
         '''
         print(f"File: {filepath}")
         for error in errors:
-            print("::error file={filepath},line=1,col=1::{error}")
+            print(f"::error file={filepath},line=1,col=1::{error}")
         print('')
         return False
 
