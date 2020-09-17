@@ -4,6 +4,10 @@
 Changelog
 #########
 
+.. code::
+   
+   vyos
+
 vyos
 
 1.1.1.1
