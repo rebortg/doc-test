@@ -52,7 +52,7 @@ for Vyatta.
 In the 4.0 release of Vyatta, the routing engine was changed to Quagga. As of
 VyOS version 1.2, VyOS now uses `FRRouting <https://frrouting.org/>`_ as the
 routing engine.
-
+  nn
 How is VyOS different from any other router distributions and platform?
 
 - It's more than just a firewall and VPN, VyOS includes extended routing
