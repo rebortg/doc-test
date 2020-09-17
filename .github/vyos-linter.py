@@ -137,6 +137,7 @@ def main():
     try:
         files = sys.argv[2]
         for file in files:
+                print(file)
                 if file[-4:] == ".rst":
                     if handle_file_action(file) is False:
                         bool_error = False
