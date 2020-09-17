@@ -19,14 +19,3 @@ jobs:
         files: '${{ steps.file_changes.outputs.files_modified }}'  
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  lint-all:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    
-    - name: Vale
-      uses: errata-ai/vale-action@v1.3.0  
-    env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
