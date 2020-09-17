@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: File Changes
       id: file_changes
@@ -17,8 +17,6 @@ jobs:
       uses: errata-ai/vale-action@v1.3.0
       with:
         files: '${{ steps.file_changes.outputs.files_modified }}' 
-    
-    - uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -26,7 +24,7 @@ jobs:
         python-version: '3.x'
 
     - name: run linter
-      run: python .github/vyos-linter.py '${{ steps.file_changes.outputs.files_modified }}'
+      run: python .github/vyos-linter.py ${{ steps.file_changes.outputs.files_modified }}
 
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
