@@ -18,7 +18,7 @@ jobs:
       with:
         files: '${{ steps.file_changes.outputs.files_modified }}'
     
-    - name: Vale
+    - name: Vale_all
       uses: errata-ai/vale-action@v1.3.0
   
     env:
