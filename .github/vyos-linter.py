@@ -136,7 +136,7 @@ def main():
     bool_error = True
     print('start')
     try:
-        files = sys.argv[2]
+        files = sys.argv[1]
         for file in files:
                 print(file)
                 if file[-4:] == ".rst":
