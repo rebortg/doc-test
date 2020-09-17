@@ -4,9 +4,6 @@
 Changelog
 #########
 
-VyOS
-
-vyos
 
 1.2 (Crux)
 ==========

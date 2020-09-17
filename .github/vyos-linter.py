@@ -1,6 +1,7 @@
 import os
 import re
 import ipaddress
+import sys
 
 IPV4SEG  = r'(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])'
 IPV4ADDR = r'(?:(?:' + IPV4SEG + r'\.){3,3}' + IPV4SEG + r')'
@@ -101,6 +102,7 @@ def handle_file(path, file):
 
 
 def main():
+    print(sys.argv[1])
     bool_error = True
     # TODO: path and/or files via cli arg
     for root, dirs, files in os.walk("../docs"):
