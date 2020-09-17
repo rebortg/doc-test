@@ -11,6 +11,8 @@ Changelog
 1.2.5
 -----
 
+1.1.1.1
+
 1.2.5 is a maintenance release made in April 2020.
 
 Resolved issues
