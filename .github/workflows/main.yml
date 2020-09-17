@@ -24,7 +24,7 @@ jobs:
         python-version: '3.x'
 
     - name: run linter
-      run: python .github/vyos-linter.py ${{ steps.file_changes.outputs.files_modified }}
+      run: python .github/vyos-linter.py '${{ steps.file_changes.outputs.files_modified }}'
 
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

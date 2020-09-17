@@ -126,9 +126,12 @@ def handle_file_action(filepath):
         fp.close()
 
     if len(errors) > 0:
+        '''
+        "::{$type} file={$filename},line={$line},col=$column::{$log}"
+        '''
         print(f"File: {filepath}")
         for error in errors:
-            print(error)
+            print("::error file={filepath},line=1,col=1::{error}")
         print('')
         return False
 
