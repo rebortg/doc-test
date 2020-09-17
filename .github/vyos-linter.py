@@ -100,17 +100,53 @@ def handle_file(path, file):
         print('')
         return False
 
+def handle_file_action(filepath):
+    errors = []
+    try:
+        with open(filepath) as fp:
+            line = fp.readline()
+            cnt = 1
+            while line:
+                err_mac = lint_mac(cnt, line.strip())
+                err_ip4 = lint_ipv4(cnt, line.strip())
+                err_ip6 = lint_ipv6(cnt, line.strip())
+                err_len = lint_linelen(cnt, line.strip())
+                if err_mac:
+                    errors.append(err_mac)
+                if err_ip4:
+                    errors.append(err_ip4)
+                if err_ip6:
+                    errors.append(err_ip6)
+                if err_len:
+                    errors.append(err_len)
+                line = fp.readline()
+                cnt += 1
+    finally:
+        fp.close()
+
+    if len(errors) > 0:
+        print(f"File: {filepath}")
+        for error in errors:
+            print(error)
+        print('')
+        return False
+
 
 def main():
-    print(sys.argv)
     bool_error = True
-    # TODO: path and/or files via cli arg
-    for root, dirs, files in os.walk("../docs"):
-        path = root.split(os.sep)
+    try:
+        files = sys.argv[2]
         for file in files:
-            if file[-4:] == ".rst":
-                if handle_file(path, file) is False:
-                    bool_error = False
+                if file[-4:] == ".rst":
+                    if handle_file_action(file) is False:
+                        bool_error = False
+    except:    
+        for root, dirs, files in os.walk("../docs"):
+            path = root.split(os.sep)
+            for file in files:
+                if file[-4:] == ".rst":
+                    if handle_file(path, file) is False:
+                        bool_error = False
     return bool_error
 
 
