@@ -16,6 +16,8 @@ jobs:
     - name: Vale
       uses: errata-ai/vale-action@v1.3.0
       with:
-        files: '${{ steps.file_changes.outputs.files_modified }}'  
+        files: '${{ steps.file_changes.outputs.files_modified }}' 
+    - name: Debug Action
+      uses: hmarr/debug-action@v1.0.0
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
