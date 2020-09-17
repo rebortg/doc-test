@@ -2,21 +2,21 @@ name: Linting
 on:
   pull_request:
 
-    jobs:
-        lint:
-          runs-on: ubuntu-latest
-          steps:
-          - name: Checkout
-            uses: actions/checkout@v1
-      
-          - name: File Changes
-            id: file_changes
-            uses: trilom/file-changes-action@v1.2.3
-      
-          - name: Vale
-            uses: errata-ai/vale-action@v1.3.0
-            with:
-              files: '${{ steps.file_changes.outputs.files_modified }}'
-      
-            env:
-              GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: File Changes
+      id: file_changes
+      uses: trilom/file-changes-action@v1.2.3
+
+    - name: Vale
+      uses: errata-ai/vale-action@v1.3.0
+      with:
+        files: '${{ steps.file_changes.outputs.files_modified }}'
+  
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
