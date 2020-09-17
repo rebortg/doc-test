@@ -17,18 +17,18 @@ jobs:
       uses: errata-ai/vale-action@v1.3.0
       with:
         files: '${{ steps.file_changes.outputs.files_modified }}' 
+    
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Lint with flake8
+      run: .github/vyos-linter.py '${{ steps.file_changes.outputs.files_modified }}'
 
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  
-  lint-py:
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Lint with flake8
-        run: .github/vyos-linter.py '${{ steps.file_changes.outputs.files_modified }}'
+    
+    
