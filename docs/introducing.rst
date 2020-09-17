@@ -8,7 +8,7 @@ Introducing
 About
 *****
 
-VyOS is an open source network operating system based on Debian GNU/Linux.
+VyOS is an open source network operating system based Debian GNU/Linux.
 
 VyOS provides a free routing platform that competes directly with other
 commercially available solutions from well known network providers. Because
