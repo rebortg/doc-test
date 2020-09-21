@@ -35,7 +35,7 @@ def lint_mac(cnt, line):
         u_mac = re.search(r'((00)[:-](53)([:-][0-9A-F]{2}){4})', mac, re.I)
         m_mac = re.search(r'((90)[:-](10)([:-][0-9A-F]{2}){4})', mac, re.I)
         if u_mac is None and m_mac is None:
-            return (f"MAC-Address Error: {mac}", cnt, 'error')
+            return (f"Use MAC reserved for Documentation (RFC7042): {mac}", cnt, 'error')
 
 
 def lint_ipv4(cnt, line):
@@ -44,7 +44,7 @@ def lint_ipv4(cnt, line):
         ip = ipaddress.ip_address(ip.group().strip(' '))
         # https://docs.python.org/3/library/ipaddress.html#ipaddress.IPv4Address.is_private
         if ip.is_private is False and ip.is_multicast is False:
-            return (f"IPv4 Error: {ip}", cnt, 'error')
+            return (f"Use IPv4 reserved for Documentation (RFC 5737) or private Space: {ip}", cnt, 'error')
 
 
 def lint_ipv6(cnt, line):
@@ -53,7 +53,7 @@ def lint_ipv6(cnt, line):
         ip = ipaddress.ip_address(ip.group().strip(' '))
         # https://docs.python.org/3/library/ipaddress.html#ipaddress.IPv4Address.is_private
         if ip.is_private is False and ip.is_multicast is False:
-            return (f"IPv6 Error: {ip}", cnt, 'error')
+            return (f"Use IPv6 reserved for Documentation (RFC 3849) or private Space: {ip}", cnt, 'error')
 
 
 def lint_AS(cnt, line):
@@ -158,4 +158,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if main() == False:
+        exit(1)
